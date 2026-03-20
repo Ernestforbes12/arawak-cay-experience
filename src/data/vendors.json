@@ -1,0 +1,225 @@
+{
+  "vendors": [
+    {
+      "id": "twin-brothers",
+      "name": "Twin Brothers",
+      "tagline": "The legend of Arawak Cay since 1994",
+      "description": "Twin Brothers is the cornerstone of the Fish Fry experience. Known for their perfectly fried snapper and conch salad made fresh to order, this is the shack that started it all.",
+      "status": "open",
+      "waitTime": 15,
+      "rating": 4.9,
+      "specialty": "Cracked Conch",
+      "established": 1994,
+      "position": { "x": 120, "y": 60 },
+      "menu": [
+        {
+          "id": "tb-01",
+          "name": "Cracked Conch",
+          "category": "mains",
+          "price": 18.00,
+          "description": "Hand-pounded conch, lightly breaded and fried golden. Served with peas and rice and coleslaw.",
+          "popular": true,
+          "image": "cracked-conch.jpg"
+        },
+        {
+          "id": "tb-02",
+          "name": "Fried Snapper",
+          "category": "mains",
+          "price": 22.00,
+          "description": "Whole red snapper, seasoned with Bahamian spices and fried to order.",
+          "popular": true,
+          "image": "fried-snapper.jpg"
+        },
+        {
+          "id": "tb-03",
+          "name": "Conch Salad",
+          "category": "starters",
+          "price": 12.00,
+          "description": "Fresh conch, diced tomatoes, onions, peppers, and citrus. Made to order.",
+          "popular": true,
+          "image": "conch-salad.jpg"
+        },
+        {
+          "id": "tb-04",
+          "name": "Peas and Rice",
+          "category": "sides",
+          "price": 4.00,
+          "description": "Traditional Bahamian peas and rice cooked with thyme and coconut milk.",
+          "popular": false,
+          "image": "peas-rice.jpg"
+        },
+        {
+          "id": "tb-05",
+          "name": "Kalik Beer",
+          "category": "drinks",
+          "price": 5.00,
+          "description": "The beer of the Bahamas. Ice cold.",
+          "popular": true,
+          "image": "kalik.jpg"
+        }
+      ]
+    },
+    {
+      "id": "goldies",
+      "name": "Goldie's",
+      "tagline": "Where the locals eat",
+      "description": "Goldie's has been feeding Nassau for decades. No frills, no pretense — just the best conch fritters on the strip and portions that mean you will not need to eat again until tomorrow.",
+      "status": "open",
+      "waitTime": 8,
+      "rating": 4.8,
+      "specialty": "Conch Fritters",
+      "established": 1989,
+      "position": { "x": 280, "y": 60 },
+      "menu": [
+        {
+          "id": "gd-01",
+          "name": "Conch Fritters",
+          "category": "starters",
+          "price": 10.00,
+          "description": "Six golden fritters packed with fresh conch and island spices. Served with dipping sauce.",
+          "popular": true,
+          "image": "conch-fritters.jpg"
+        },
+        {
+          "id": "gd-02",
+          "name": "Steamed Fish",
+          "category": "mains",
+          "price": 20.00,
+          "description": "Whole fish steamed in a rich tomato and pepper sauce. Served with grits.",
+          "popular": true,
+          "image": "steamed-fish.jpg"
+        },
+        {
+          "id": "gd-03",
+          "name": "Grits",
+          "category": "sides",
+          "price": 3.50,
+          "description": "Creamy Bahamian-style grits.",
+          "popular": false,
+          "image": "grits.jpg"
+        },
+        {
+          "id": "gd-04",
+          "name": "Sky Juice",
+          "category": "drinks",
+          "price": 6.00,
+          "description": "Fresh coconut water, gin, and sweet milk. The official drink of the Fish Fry.",
+          "popular": true,
+          "image": "sky-juice.jpg"
+        }
+      ]
+    },
+    {
+      "id": "caps-fish-fry",
+      "name": "Cap's Fish Fry",
+      "tagline": "Authentic flavors, generous portions",
+      "description": "Cap's is known for generous portions and a welcoming atmosphere. Their steamed conch is slow-cooked and draws a crowd every Friday night.",
+      "status": "open",
+      "waitTime": 20,
+      "rating": 4.7,
+      "specialty": "Steamed Conch",
+      "established": 2001,
+      "position": { "x": 440, "y": 60 },
+      "menu": [
+        {
+          "id": "cp-01",
+          "name": "Steamed Conch",
+          "category": "mains",
+          "price": 16.00,
+          "description": "Conch slow-steamed in a seasoned broth with peppers and onions.",
+          "popular": true,
+          "image": "steamed-conch.jpg"
+        },
+        {
+          "id": "cp-02",
+          "name": "Chicken Souse",
+          "category": "mains",
+          "price": 14.00,
+          "description": "Traditional Bahamian souse with chicken, lime, and allspice.",
+          "popular": true,
+          "image": "chicken-souse.jpg"
+        },
+        {
+          "id": "cp-03",
+          "name": "Johnny Cake",
+          "category": "sides",
+          "price": 3.00,
+          "description": "Dense, slightly sweet Bahamian cornbread baked fresh daily.",
+          "popular": true,
+          "image": "johnny-cake.jpg"
+        },
+        {
+          "id": "cp-04",
+          "name": "Switcha",
+          "category": "drinks",
+          "price": 3.00,
+          "description": "Fresh-squeezed Bahamian lemonade made with sour oranges.",
+          "popular": false,
+          "image": "switcha.jpg"
+        }
+      ]
+    },
+    {
+      "id": "afar-bahamian-cuisine",
+      "name": "Afar Bahamian Cuisine",
+      "tagline": "Modern takes on island classics",
+      "description": "Afar brings a contemporary lens to traditional Bahamian cooking. Expect familiar flavors elevated with technique and presentation that feels upscale without losing the soul of the Fish Fry.",
+      "status": "closed",
+      "waitTime": 0,
+      "rating": 4.6,
+      "specialty": "Lobster Tail",
+      "established": 2015,
+      "position": { "x": 600, "y": 60 },
+      "menu": [
+        {
+          "id": "af-01",
+          "name": "Grilled Lobster Tail",
+          "category": "mains",
+          "price": 38.00,
+          "description": "Bahamian spiny lobster tail, grilled with garlic butter and herbs.",
+          "popular": true,
+          "image": "lobster-tail.jpg"
+        },
+        {
+          "id": "af-02",
+          "name": "Conch Chowder",
+          "category": "starters",
+          "price": 11.00,
+          "description": "Rich, creamy chowder with fresh conch, potatoes, and thyme.",
+          "popular": true,
+          "image": "conch-chowder.jpg"
+        },
+        {
+          "id": "af-03",
+          "name": "Mango Daiquiri",
+          "category": "drinks",
+          "price": 9.00,
+          "description": "Fresh Bahamian mango blended with rum and lime.",
+          "popular": true,
+          "image": "mango-daiquiri.jpg"
+        }
+      ]
+    }
+  ],
+  "fishFryInfo": {
+    "name": "Arawak Cay Fish Fry",
+    "tagline": "The soul of Nassau on a plate",
+    "description": "Arawak Cay, known locally as The Fish Fry, is Nassau's most beloved culinary destination. Stretching along the western waterfront, this collection of colorful wooden shacks has been serving fresh Bahamian seafood since the 1980s.",
+    "location": {
+      "address": "Arawak Cay, West Bay Street",
+      "city": "Nassau",
+      "island": "New Providence",
+      "country": "The Bahamas",
+      "coordinates": {
+        "lat": 25.0833,
+        "lng": -77.3500
+      }
+    },
+    "hours": {
+      "weekdays": "11:00 AM - 11:00 PM",
+      "friday": "11:00 AM - 2:00 AM",
+      "saturday": "10:00 AM - 2:00 AM",
+      "sunday": "10:00 AM - 11:00 PM"
+    }
+  }
+}

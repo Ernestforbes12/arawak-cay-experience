@@ -1,9 +1,25 @@
+import { lazy, Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import PageLoader from './components/PageLoader'
+
+const Home   = lazy(() => import('./pages/Home'))
+const Menu   = lazy(() => import('./pages/Menu'))
+const Vendor = lazy(() => import('./pages/Vendor'))
+const About  = lazy(() => import('./pages/About'))
+
 export default function App() {
   return (
-    <div className="bg-night-900 min-h-screen flex items-center justify-center">
-      <h1 className="font-display text-sunset-500 text-6xl tracking-widest">
-        ARAWAK CAY
-      </h1>
+    <div className="bg-night-900 min-h-screen text-white">
+      <Navbar />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/"           element={<Home />}   />
+          <Route path="/menu"       element={<Menu />}   />
+          <Route path="/vendor/:id" element={<Vendor />} />
+          <Route path="/about"      element={<About />}  />
+        </Routes>
+      </Suspense>
     </div>
   )
 }
