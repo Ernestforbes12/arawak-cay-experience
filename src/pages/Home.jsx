@@ -1,4 +1,9 @@
-// src/pages/Home.jsx
+import Hero from '../components/Hero'
+
 export default function Home() {
-  return <div>Home</div>
+  return (
+    <main>
+      <Hero />
+    </main>
+  )
 }
