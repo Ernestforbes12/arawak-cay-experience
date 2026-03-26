@@ -25,6 +25,7 @@ useGSAP(() => {
           trigger: accentRef.current,
           start: 'top 85%',
           toggleActions: 'play none none reverse',
+          refreshPriority: -1,
         }
       }
     )
@@ -40,6 +41,7 @@ useGSAP(() => {
           trigger: headlineRef.current,
           start: 'top 80%',
           toggleActions: 'play none none reverse',
+          refreshPriority: -1,
         }
       }
     )
@@ -55,6 +57,7 @@ useGSAP(() => {
           trigger: bodyRef.current,
           start: 'top 80%',
           toggleActions: 'play none none reverse',
+          refreshPriority: -1,
         }
       }
     )
@@ -71,6 +74,8 @@ useGSAP(() => {
           trigger: statsRef.current[0],
           start: 'top 85%',
           toggleActions: 'play none none reverse',
+          refreshPriority: -1,
+          
         }
       }
     )
@@ -95,7 +100,7 @@ useGSAP(() => {
     >
       {/* Large decorative background text — purely visual */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-        <span className="font-display text-white/[0.02] text-[20vw] tracking-widest select-none">
+        <span className="font-display text-white/[0.025] text-[20vw] tracking-widest select-none pointer-events-none">
           NASSAU
         </span>
       </div>
