@@ -3,6 +3,7 @@ import TheStrip from '../components/TheStrip'
 import AboutSection from '../components/AboutSection'
 import LocationHours from '../components/LocationHours'
 
+
 export default function Home() {
   return (
     <main>
@@ -10,6 +11,7 @@ export default function Home() {
       <TheStrip />
       <AboutSection />
       <LocationHours />
+     
     </main>
   )
 }

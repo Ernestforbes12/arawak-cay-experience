@@ -120,13 +120,16 @@ useGSAP(() => {
         </p>
 
         {/* Main Headline */}
-        <div ref={headlineRef}>
-          <h2 className="font-display text-white text-5xl md:text-7xl lg:text-8xl tracking-wider leading-none mb-4">
-            THE SOUL OF
-          </h2>
-          <h2 className="font-display text-sunset-500 text-5xl md:text-7xl lg:text-8xl tracking-wider leading-none mb-12">
-            NASSAU.
-          </h2>
+        {/* Large decorative background text — purely visual */}
+        <div
+             className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none"
+             aria-hidden="true"
+        >
+        <span
+             style={{ opacity: 0.018, fontSize: '20vw', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.1em', color: 'white', whiteSpace: 'nowrap' }}
+        >
+         NASSAU
+        </span>
         </div>
 
         {/* Two Column Layout */}

@@ -11,6 +11,8 @@ export default function LocationHours() {
   const { fishFryInfo } = useVendors()
 
   useGSAP(() => {
+  const ctx = gsap.context(() => {
+
     gsap.fromTo(leftRef.current,
       { opacity: 0, x: -40 },
       {
@@ -42,7 +44,12 @@ export default function LocationHours() {
         }
       }
     )
-  }, { scope: containerRef })
+
+  }, containerRef)
+
+  return () => ctx.revert()
+
+}, { scope: containerRef })
 
   if (!fishFryInfo) return null
 
@@ -71,7 +78,7 @@ export default function LocationHours() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
 
           {/* Left — Location */}
-          <div ref={leftRef} style={{ opacity: 0 }}>
+          <div ref={leftRef}>
             <h2 className="font-display text-white text-4xl md:text-6xl tracking-wider mb-8 leading-none">
               ARAWAK CAY
             </h2>
@@ -128,7 +135,7 @@ export default function LocationHours() {
           </div>
 
           {/* Right — Hours */}
-          <div ref={rightRef} style={{ opacity: 0 }}>
+          <div ref={rightRef}>
             <h2 className="font-display text-white text-4xl md:text-6xl tracking-wider mb-8 leading-none">
               HOURS
             </h2>
