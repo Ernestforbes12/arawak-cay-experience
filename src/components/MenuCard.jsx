@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion'
 
-// This is one of the few places we use Framer Motion.
-// These are simple card entrance animations — not scroll-driven,
-// not sequenced. Framer Motion handles this case cleanly
-// without needing a GSAP timeline.
 export default function MenuCard({ item, vendor }) {
   const isPopular = item.popular
 
@@ -18,10 +14,21 @@ export default function MenuCard({ item, vendor }) {
       {/* Image Area */}
       <div className="relative h-48 bg-night-700 overflow-hidden">
 
-        {/* Placeholder gradient when no image is available */}
-        <div className="absolute inset-0 bg-gradient-to-br from-night-700 to-night-900" />
+        {/* Food photography */}
+        <img
+          src={`/images/menu/${item.image}`}
+          alt={item.name}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            e.target.style.display = 'none'
+          }}
+        />
 
-        {/* Category label sits over the image */}
+        {/* Gradient overlay so badges and price stay readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-night-900/80 via-night-900/20 to-transparent" />
+
+        {/* Category label */}
         <div className="absolute top-4 left-4">
           <span className="font-body text-xs tracking-widest uppercase px-3 py-1 rounded-full bg-night-900/80 text-white/50 border border-white/10">
             {item.category}
@@ -37,7 +44,7 @@ export default function MenuCard({ item, vendor }) {
           </div>
         )}
 
-        {/* Price sits at the bottom of the image area */}
+        {/* Price */}
         <div className="absolute bottom-4 right-4">
           <span className="font-display text-2xl text-white tracking-wider">
             ${item.price.toFixed(2)}
@@ -62,7 +69,9 @@ export default function MenuCard({ item, vendor }) {
         {/* Vendor Attribution */}
         <div className="flex items-center justify-between pt-4 border-t border-white/5">
           <div className="flex items-center gap-2">
-            <span className={`w-1.5 h-1.5 rounded-full ${vendor.status === 'open' ? 'bg-bimini-400' : 'bg-white/20'}`} />
+            <span className={`w-1.5 h-1.5 rounded-full ${
+              vendor.status === 'open' ? 'bg-bimini-400' : 'bg-white/20'
+            }`} />
             <span className="font-body text-xs text-white/30 tracking-wider">
               {vendor.name}
             </span>
