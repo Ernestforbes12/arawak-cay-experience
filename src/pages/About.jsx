@@ -1,4 +1,9 @@
-// src/pages/About.jsx
+import AboutSection from '../components/AboutSection'
+
 export default function About() {
-  return <div>About</div>
+  return (
+    <main className="pt-20">
+      <AboutSection />
+    </main>
+  )
 }
