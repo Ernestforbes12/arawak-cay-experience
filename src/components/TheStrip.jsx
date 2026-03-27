@@ -16,8 +16,6 @@ export default function TheStrip() {
   useGSAP(() => {
     if (loading || vendors.length === 0) return
 
-    // Pin the section and scrub the horizontal scroll
-    // as the user scrolls vertically down the page.
     const pinTrigger = ScrollTrigger.create({
       trigger: containerRef.current,
       start: 'top top',
@@ -26,7 +24,6 @@ export default function TheStrip() {
       anticipatePin: 1,
     })
 
-    // Title animates in when the section enters the viewport.
     gsap.fromTo(titleRef.current,
       { opacity: 0, y: 40 },
       {
@@ -42,7 +39,6 @@ export default function TheStrip() {
       }
     )
 
-    // Each card animates in with a stagger as the user scrolls.
     gsap.fromTo(cardsRef.current,
       { opacity: 0, x: 80, scale: 0.95 },
       {
@@ -76,7 +72,7 @@ export default function TheStrip() {
     >
       {/* Section Header */}
       <div ref={titleRef} style={{ opacity: 0 }} className="px-8 md:px-16 pt-16 pb-8">
-        <p className="font-body text-bimini-500 text-sm tracking-widest uppercase mb-2">
+        <p className="font-body text-sm tracking-widest uppercase mb-2 accent-text">
           The Strip
         </p>
         <h2 className="font-display text-white text-5xl md:text-7xl tracking-wider">
@@ -88,10 +84,10 @@ export default function TheStrip() {
         </p>
       </div>
 
-      {/* Vendor Cards — horizontal scroll container */}
+      {/* Vendor Cards */}
       <div
         ref={stripRef}
-        className="flex gap-6 px-8 md:px-16 pb-16 overflow-x-auto scrollbar-hide"
+        className="flex gap-6 px-8 md:px-16 pb-16 overflow-x-auto"
         style={{ scrollbarWidth: 'none' }}
       >
         {vendors.map((vendor, index) => (
@@ -111,8 +107,6 @@ export default function TheStrip() {
   )
 }
 
-// Separated into its own component for cleanliness.
-// Each card is responsible only for rendering one vendor.
 function VendorCard({ vendor, cardRef, onClick }) {
   const isOpen = vendor.status === 'open'
 
@@ -121,19 +115,32 @@ function VendorCard({ vendor, cardRef, onClick }) {
       ref={cardRef}
       onClick={onClick}
       style={{ opacity: 0 }}
-      className="flex-shrink-0 w-72 bg-night-700 border border-white/5 rounded-2xl overflow-hidden cursor-pointer group hover:border-bimini-500/40 transition-colors duration-300"
+      className="flex-shrink-0 w-72 bg-night-700 border border-white/5 rounded-2xl overflow-hidden cursor-pointer group hover:border-white/20 transition-colors duration-300"
     >
       {/* Card Header */}
       <div className="p-6 border-b border-white/5">
 
         {/* Status Badge */}
         <div className="flex items-center justify-between mb-4">
-          <span className={`inline-flex items-center gap-1.5 text-xs font-body tracking-wider uppercase px-3 py-1 rounded-full ${
-            isOpen
-              ? 'bg-bimini-500/15 text-bimini-400 border border-bimini-500/30'
-              : 'bg-white/5 text-white/30 border border-white/10'
-          }`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? 'bg-bimini-400' : 'bg-white/30'}`} />
+          <span
+            className="inline-flex items-center gap-1.5 text-xs font-body tracking-wider uppercase px-3 py-1 rounded-full border"
+            style={isOpen ? {
+              backgroundColor: 'var(--accent-muted)',
+              color: 'var(--accent-light)',
+              borderColor: 'var(--accent-border)',
+            } : {
+              backgroundColor: 'rgba(255,255,255,0.05)',
+              color: 'rgba(255,255,255,0.30)',
+              borderColor: 'rgba(255,255,255,0.10)',
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={isOpen
+                ? { backgroundColor: 'var(--accent)' }
+                : { backgroundColor: 'rgba(255,255,255,0.30)' }
+              }
+            />
             {isOpen ? 'Open' : 'Closed'}
           </span>
 
@@ -145,7 +152,7 @@ function VendorCard({ vendor, cardRef, onClick }) {
         </div>
 
         {/* Vendor Name */}
-        <h3 className="font-display text-white text-3xl tracking-wider group-hover:text-sunset-500 transition-colors duration-300">
+        <h3 className="font-display text-white text-3xl tracking-wider group-hover:text-white/70 transition-colors duration-300">
           {vendor.name.toUpperCase()}
         </h3>
         <p className="font-body text-white/40 text-sm mt-1 italic">
@@ -155,18 +162,15 @@ function VendorCard({ vendor, cardRef, onClick }) {
 
       {/* Card Body */}
       <div className="p-6">
-
-        {/* Specialty */}
         <div className="mb-4">
           <p className="font-body text-white/30 text-xs tracking-widest uppercase mb-1">
             Known for
           </p>
-          <p className="font-body text-bimini-400 text-sm font-medium">
+          <p className="font-body text-sm font-medium accent-text">
             {vendor.specialty}
           </p>
         </div>
 
-        {/* Rating */}
         <div className="mb-6">
           <p className="font-body text-white/30 text-xs tracking-widest uppercase mb-1">
             Rating
@@ -176,7 +180,6 @@ function VendorCard({ vendor, cardRef, onClick }) {
           </p>
         </div>
 
-        {/* Established */}
         <div className="mb-6">
           <p className="font-body text-white/30 text-xs tracking-widest uppercase mb-1">
             Established
@@ -191,13 +194,12 @@ function VendorCard({ vendor, cardRef, onClick }) {
           <span className="font-body text-xs text-white/30 tracking-wider uppercase">
             View Menu
           </span>
-          <span className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-sunset-500/50 group-hover:bg-sunset-500/10 transition-all duration-300">
+          <span className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </span>
         </div>
-
       </div>
     </div>
   )

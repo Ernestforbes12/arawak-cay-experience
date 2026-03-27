@@ -4,6 +4,30 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent:        #00bfa8;
+  --accent-light:  #4dd4c2;
+  --accent-dark:   #008f7e;
+  --accent-muted:  rgba(0, 191, 168, 0.15);
+  --accent-border: rgba(0, 191, 168, 0.30);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.accent-border {
+  border-color: var(--accent-border);
+}
+
+.accent-bg {
+  background-color: var(--accent-muted);
+}
+
+.accent-line {
+  background-color: var(--accent);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;

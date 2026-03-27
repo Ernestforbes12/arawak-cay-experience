@@ -5,13 +5,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-night-900/90 backdrop-blur-sm border-b border-bimini-900/40">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-night-900/90 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Brand */}
         <NavLink
           to="/"
-          className="font-display text-2xl tracking-widest text-white hover:text-sunset-500 transition-colors duration-300"
+          className="font-display text-2xl tracking-widest text-white hover:text-white/70 transition-colors duration-300"
         >
           ARAWAK CAY
         </NavLink>
@@ -25,10 +25,13 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `font-body text-sm tracking-wider uppercase transition-colors duration-300 ${
                     isActive
-                      ? 'text-sunset-500 border-b border-sunset-500 pb-0.5'
+                      ? 'accent-text border-b pb-0.5'
                       : 'text-white/70 hover:text-white'
                   }`
                 }
+                style={({ isActive }) => isActive ? {
+                  borderColor: 'var(--accent)',
+                } : {}}
               >
                 {link.label}
               </NavLink>
@@ -51,7 +54,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-64' : 'max-h-0'}`}>
-        <ul className="flex flex-col px-6 pb-6 gap-4 border-t border-bimini-900/40">
+        <ul className="flex flex-col px-6 pb-6 gap-4 border-t border-white/5">
           {navLinks.map(link => (
             <li key={link.path}>
               <NavLink
@@ -59,7 +62,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
                   `block font-body text-sm tracking-wider uppercase pt-4 transition-colors duration-300 ${
-                    isActive ? 'text-sunset-500' : 'text-white/70 hover:text-white'
+                    isActive ? 'accent-text' : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -75,7 +78,7 @@ export default function Navbar() {
 }
 
 const navLinks = [
-  { path: '/',      label: 'Home'     },
-  { path: '/menu',  label: 'Menu'     },
-  { path: '/about', label: 'About'    },
+  { path: '/',      label: 'Home'  },
+  { path: '/menu',  label: 'Menu'  },
+  { path: '/about', label: 'About' },
 ]
