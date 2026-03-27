@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import PageLoader from './components/PageLoader'
+import Footer from './components/Footer'
 
 const Home   = lazy(() => import('./pages/Home'))
 const Menu   = lazy(() => import('./pages/Menu'))
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/about"      element={<About />}  />
         </Routes>
       </Suspense>
+      <Footer />
     </div>
   )
 }
